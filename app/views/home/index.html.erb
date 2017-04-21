@@ -1,0 +1,21 @@
+<% if user_signed_in? %>
+
+<h3>Welcome to event management</h3>
+<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+</br>
+
+<%= link_to "Events", events_path %>
+
+<% else %>
+
+<h1>Login or register</h1>
+<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+</br>
+<%= link_to "Sign In", new_user_session_path, :method => :get %>
+</br>
+<%= link_to "Sign up as Manager", new_user_registration_path(role: 'manager'), :method => :get %>
+</br>
+<%= link_to "Sign up as Audience", new_user_registration_path(role: 'audience'), :method => :get %>
+
+<% end %>
